@@ -1,0 +1,191 @@
+.header {
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  opacity: 0;
+  bottom: 0;
+  z-index: 102;
+
+  &__wrapper {
+    padding: 22px 0;
+
+    @util clearfix;
+  }
+
+  .loaded & {
+    animation: slideIn 1s ease forwards 1.55s;
+  }
+
+  &.affix {
+    position: fixed;
+    top: 0;
+    bottom: auto;
+
+    .header_logo {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity .3s ease .2s, visibility .2s ease;
+    }
+
+    .header_links {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .1s ease .0s, visibility .1s ease;
+    }
+  }
+
+  @include break-max(medium) {
+    &__wrapper {
+      padding: 10px 0;
+    }
+  }
+}
+
+.header_social {
+  float: left;
+}
+
+.header_action {
+  float: right;
+  margin-top: -4px;
+  margin-bottom: -4px;
+
+  .btn {
+    width: 380px;
+  }
+}
+
+.header_links {
+  margin: 0 350px;
+  text-align: center;
+  transition: opacity .3s ease .1s, visibility .3s ease;
+}
+
+.header_logo {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  height: 30px;
+  width: 30px;
+  top: 27px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .1s ease 0s, visibility .1s ease;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity $transition;
+  }
+
+  @include break-max(medium) {
+    width: 30px;
+    height: 30px;
+    margin-top: 0;
+
+    &:after {
+      display: none !important;
+    }
+
+    img {
+      height: 30px;
+      width: 30px;
+    }
+  }
+}
+
+.navbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  top: 50%;
+  width: 100%;
+  z-index: 100;
+  transform: translate(0, -50%);
+}
+
+.navbar_inner {
+  width: 30px;
+  transition: width .3s ease;
+  float: right;
+  overflow: hidden;
+
+  &:hover {
+    width: 190px;
+  }
+}
+
+.nav-dots {
+  text-align: right;
+  pointer-events: all;
+  font-weight: getFontWeight(semibold);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  overflow: hidden;
+  width: 190px;
+  float: right;
+
+  > li {
+    margin-bottom: 10px;
+    width: 190px;
+    display: block;
+
+    > a {
+      position: relative;
+      padding: 5px 30px 5px 5px;
+      background-color: transparent;
+      color: getColor(white);
+      height: 30px;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: transparent;
+      }
+
+      &:hover {
+        span {
+          opacity: 1;
+        }
+      }
+
+      &:after {
+        content: '';
+        border: 2px solid getColor(pink);
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        right: 0;
+        top: 9px;
+        opacity: .2;
+        transition: opacity .3s ease;
+      }
+
+      span {
+        opacity: .2;
+        transition: opacity .3s ease;
+      }
+    }
+
+    &.active {
+      > a {
+        opacity: 1;
+        font-size: 12px;
+
+        span,
+        &:after {
+          opacity: 1;
+        }
+
+        &:after {
+          background-color: getColor(pink);
+        }
+      }
+    }
+  }
+}

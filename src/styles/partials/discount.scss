@@ -1,0 +1,51 @@
+.discount {
+  padding: 20px 0;
+  margin-bottom: 60px;
+}
+
+.discount_img {
+  transition: all .3s ease-in;
+  transform-origin: 100% 100%;
+  margin-bottom: 25px;
+
+  img {
+    width: 100%;
+  }
+
+  &.affix {
+    position: relative;
+    transform: rotateX(0deg);
+  }
+
+  &.affix-top {
+    transform: rotateX(90deg);
+  }
+}
+
+.discount_info {
+  overflow: hidden;
+}
+
+.discount_item {
+  float: left;
+  width: percentage(1/5);
+  text-align: center;
+  padding: 0 25px;
+
+  &__title {
+    font-family: $font-stack;
+    font-weight: getFontWeight(semibold);
+    font-size: 60px;
+    line-height: 60px;
+    letter-spacing: -0.86px;
+    margin-bottom: 20px;
+  }
+
+  &__desc {
+    font-weight: getFontWeight(semibold);
+    font-size: 14px;
+    color: getColor(primary);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+}

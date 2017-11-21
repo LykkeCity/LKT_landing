@@ -1,0 +1,167 @@
+.parallax_image_groups {
+  width: 1000px;
+  height: 600px;
+  position: relative;
+  margin-left: -100px;
+}
+
+.ecosystem_layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: translate3d(0,0,0);
+  user-select: none;
+
+  &__title {
+    font-weight: getFontWeight(semibold);
+    font-size: 20px;
+    color: #55E7FF;
+    letter-spacing: 2px;
+    line-height: 24px;
+    width: 160px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 50%;
+    position: absolute;
+    text-transform: uppercase;
+    transform: translate(0, -50%);
+    z-index:4;
+    text-align: center;
+  }
+
+  &__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+
+  &__image {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 2;
+    bottom: 90px;
+  }
+
+  &__plate {
+    width: 700px;
+    height: 700px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -52px;
+    margin: 0 auto;
+
+    span {
+      display: block;
+      transform: rotateX(55deg);
+      width: 100%;
+      height: 100%;
+      position: relative;
+
+      &:after {
+        content: '';
+        left: 0;
+        top: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #112C77;
+        opacity: .5;
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  &--1 {
+    .ecosystem_element {
+      &--1 {
+        top: 270px;
+        left: 220px;
+      }
+
+      &--2 {
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        top: 100px;
+
+        .ecosystem_element__img {
+          animation-delay: .1s;
+        }
+      }
+
+      &--3 {
+        top: 270px;
+        right: 220px;
+
+        .ecosystem_element__img {
+          animation-delay: .4s;
+        }
+      }
+    }
+  }
+
+  &--2 {
+    .ecosystem_element {
+      width: 503px;
+      height: 313px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      .ecosystem_element__title {
+        position: absolute;
+        left: 0;
+        right: 0;
+        text-align: center;
+        top: 50%;
+        margin-top: -10px;
+      }
+
+      &--1 {
+        left: 0;
+        top: 150px;
+
+        .ecosystem_element__title {
+          color: #12113B;
+        }
+      }
+
+      &--2 {
+        right: 0;
+        top: 150px;
+      }
+    }
+  }
+
+  &--3 {
+    .ecosystem_layer__image {
+      bottom: 0;
+    }
+  }
+}
+
+.ecosystem_element {
+  width: 190px;
+  text-align: center;
+  position: absolute;
+  z-index:3;
+
+  &__img {
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 2px;
+    line-height: 20px;
+    text-transform: uppercase;
+  }
+}

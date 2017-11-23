@@ -3,6 +3,14 @@
   height: 600px;
   position: relative;
   margin-left: -100px;
+
+  @include break-max(tablet) {
+    margin-left: -100px;
+  }
+
+  @include break-max(medium) {
+    display: none;
+  }
 }
 
 .ecosystem_layer {
@@ -143,6 +151,32 @@
   &--3 {
     .ecosystem_layer__image {
       bottom: 0;
+    }
+  }
+
+  @include break-max(tablet) {
+    position: static;
+    opacity: 1 !important;
+
+    &__inner {
+      opacity: 1 !important;
+    }
+
+    &__plate {
+      &--1,
+      &--2 {
+        display: none;
+      }
+
+      &--3 {
+        opacity: 1 !important;
+        transform: translate3d(0,0,0) !important;
+      }
+    }
+
+    &--1,
+    &--2 {
+      display: none;
     }
   }
 }

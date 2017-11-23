@@ -1,6 +1,11 @@
 .discount {
   padding: 20px 0;
   margin-bottom: 60px;
+
+  @include break-max(medium) {
+    padding: 0;
+    margin-bottom: 40px;
+  }
 }
 
 .discount_img {
@@ -19,6 +24,10 @@
 
   &.affix-top {
     transform: rotateX(90deg);
+  }
+
+  @include break-max(medium) {
+    display: none;
   }
 }
 
@@ -47,5 +56,37 @@
     color: getColor(primary);
     letter-spacing: 2px;
     text-transform: uppercase;
+  }
+
+  @include break-max(tablet) {
+    padding-left: 10px;
+    padding-right: 10px;
+
+    &__desc {
+      font-size: 12px;
+    }
+  }
+
+  @include break-max(medium) {
+    width: 100%;
+    text-align: left;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 20px;
+    
+    &__title {
+      float: left;
+      margin-right: 20px;
+      width: 40px;
+      font-size: 30px;
+      line-height: 30px;
+      margin-bottom: 0;
+    }
+    
+    &__desc {
+      overflow: hidden;
+      font-size: 14px;
+      padding-top: 6px;
+    }
   }
 }

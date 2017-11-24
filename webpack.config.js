@@ -69,9 +69,13 @@ const commonConfig = {
       template: path.resolve(__dirname, './src/index.html'),
       hash: false,
       filename: 'index.html',
-      minify: {
-        collapseWhitespace: false
-      }
+      minify: false
+    }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, './src/thankyou.html'),
+      hash: false,
+      filename: 'thankyou.html',
+      minify: false
     })
   ]
 }

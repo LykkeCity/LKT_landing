@@ -16,6 +16,23 @@
     animation: slideIn 1s ease forwards 1.55s;
   }
 
+  .page_inner & {
+    opacity: 1 !important;
+    visibility: visible !important;
+    animation: none !important;
+    top: 0 !important;
+    bottom: auto !important;
+
+    .header_links {
+      display: none;
+    }
+
+    .header_logo {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
   &.affix {
     position: fixed;
     top: 0;
@@ -36,7 +53,7 @@
 
   @include break-max(medium) {
     &__wrapper {
-      padding: 10px 0;
+      padding: 18px 0;
     }
   }
 
@@ -61,7 +78,7 @@
   margin-bottom: -4px;
 
   .btn {
-    width: 380px;
+    width: 280px;
   }
 
   @include break-max(xlarge) {

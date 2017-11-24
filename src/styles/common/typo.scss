@@ -34,8 +34,9 @@ h1, .h1 {
 
 h2, .h2 {
   font-size: getFontSize(h2);
+  font-weight: getFontWeight(bold);
   margin-bottom: 60px;
-  line-height: 60px;
+  line-height: 1.17;
 }
 
 h3, .h3 {
@@ -95,18 +96,23 @@ hr {
 
 @include break-max(medium) {
   h1, .h1 {
-    font-size: 30px;
+    font-size: 40px;
     line-height: 36px;
   }
 
   h2, .h2 {
-    font-size: 24px;
-    line-height: 24px;
+    font-size: 30px;
     margin-bottom: 15px;
   }
 
   h3, .h3 {
     font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  h4, .h4 {
+    font-size: 20px;
+    margin-bottom: 15px;
   }
 
   p, ul, ol {

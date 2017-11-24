@@ -46,9 +46,13 @@
 .section_subtitle {
   font-weight: getFontWeight(regular);
   font-size: 30px;
-  line-height: 40px;
+  line-height: 1.33;
   letter-spacing: 0;
   font-family: $font-stack;
+
+  @include break-max(medium) {
+    font-size: 20px;
+  }
 }
 
 .section_tag {
@@ -149,6 +153,22 @@
   }
 
   @include break-max(medium) {
+    .section_title {
+      margin-bottom: 20px;
+    }
+
+    .section_subtitle {
+      max-width: 400px;
+    }
+
+    .list_links {
+      margin-top: 0;
+
+      li {
+        display: block;
+        text-align: left;
+      }
+    }
   }
 }
 
@@ -191,6 +211,13 @@
     font-size: 18px;
     line-height: 30px;
   }
+
+  @include break-max(medium) {
+    &__text {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
 }
 
 .countdown {
@@ -224,6 +251,22 @@
       line-height: 80px;
       font-family: $font-stack;
       font-weight: getFontWeight(semibold);
+    }
+  }
+
+  @include break-max(medium) {
+    &__text {
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    &__item {
+      width: 50px;
+    }
+
+    span {
+      font-size: 40px;
+      line-height: 40px;
     }
   }
 }
@@ -276,5 +319,27 @@
     font-size: 18px;
     letter-spacing: 0;
     line-height: 35px;
+  }
+}
+
+.section_thankyou {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  .section_subtitle {
+    margin: 60px 0;
+  }
+
+  @include break-max(medium) {
+    text-align: center;
+
+    .list_styled {
+      text-align: left;
+    }
+
+    .section_subtitle {
+      margin: 40px 0;
+    }
   }
 }

@@ -11,6 +11,12 @@
   @include break-max(medium) {
     display: none;
   }
+
+  @media all and (min-width: 992px) and (max-height: 767px)  {
+    position: fixed;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
 }
 
 .ecosystem_layer {
@@ -154,7 +160,7 @@
     }
   }
 
-  @include break-max(tablet) {
+  @media all and (max-width: 991px) {
     position: static;
     opacity: 1 !important;
 

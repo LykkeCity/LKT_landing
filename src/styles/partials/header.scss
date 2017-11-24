@@ -57,7 +57,7 @@
     }
   }
 
-  @include break-max(large) {
+  @media all and (max-width: 1024px), all and (max-height: 767px)  {
     top: 0 !important;
     bottom: auto !important;
     position: fixed;

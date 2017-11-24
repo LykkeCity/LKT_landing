@@ -5,13 +5,21 @@
   min-height: 100vH;
   height: 100%;
 
-  @include break-max(tablet) {
-    padding: 90px 0 !important;
+  @media all and (max-width: 991px), all and (max-height: 767px) {
     height: auto !important;
     min-height: 0;
 
+  }
+
+  @media all and (max-width: 991px) {
+    padding: 90px 0 !important;
+
     + .section {
       padding-bottom: 0 !important;
+    }
+
+    &.section_subscribe {
+      padding: 90px 0 !important;
     }
   }
 }
@@ -40,6 +48,10 @@
   @include break-max(medium) {
     font-size: 30px;
     line-height: normal;
+  }
+
+  @media all and (max-height: 767px) {
+    margin-bottom: 20px;
   }
 }
 
@@ -132,7 +144,7 @@
     }
   }
 
-  @include break-max(tablet) {
+  @media all and (max-width: 991px){
     .section_content {
       position: static;
     }
@@ -152,7 +164,7 @@
     }
   }
 
-  @include break-max(medium) {
+  @media all and (max-width: 767px) {
     .section_title {
       margin-bottom: 20px;
     }
@@ -183,7 +195,7 @@
     opacity: 0;
   }
 
-  @include break-max(tablet) {
+  @media all and (max-width: 991px), all and (max-height: 767px){
     .parallax_container {
       height: auto;
       position: static;
@@ -201,6 +213,12 @@
         opacity: 1 !important;
         pointer-events: all;
       }
+    }
+  }
+
+  @media all and (min-width: 992px) and (max-height: 767px)  {
+    .parallax_text_groups .text_group {
+      margin-bottom: 70px;
     }
   }
 }
@@ -300,6 +318,10 @@
       display: none;
     }
   }
+
+  @media all and (max-width: 991px), all and (max-height: 767px){
+    padding: 90px 0;
+  }
 }
 
 
@@ -319,6 +341,13 @@
     font-size: 18px;
     letter-spacing: 0;
     line-height: 35px;
+  }
+
+  @include break-max(medium) {
+    &__title {
+      font-size: 16px;
+      line-height: normal;
+    }
   }
 }
 

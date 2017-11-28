@@ -18,23 +18,28 @@ const validate = form => {
   return invalidFields.length === 0
 }
 
-window.onload = () => {
-  document.querySelector('body').classList.add('loaded')
-
-  const form = document.querySelector('#frmWhitelist')
+const attachValidateHandler = form => {
   form.querySelectorAll('[name]').forEach(x =>
     x.addEventListener('change', e => {
       if (e.currentTarget.value) {
         x.classList.remove('error')
       }
-    })
-  )
+    }))
+}
+
+window.onload = () => {
+  document.querySelector('body').classList.add('loaded')
+
+  const frmWhitelist = document.querySelector('#frmWhitelist')
+  attachValidateHandler(frmWhitelist)
+  const frmSubscribe = document.querySelector('#frmSubscribe')
+  attachValidateHandler(frmSubscribe)
 
   document.querySelector('#btnWhitelist').addEventListener('click', e => {
     e.preventDefault()
 
-    if (validate(form)) {
-      const json = form2Json(form)
+    if (validate(frmWhitelist)) {
+      const json = form2Json(frmWhitelist)
       api
         .order(json)
         .then(() => window.OHTracking.lead(json))
@@ -45,9 +50,11 @@ window.onload = () => {
 
   document.querySelector('#btnSubscribe').addEventListener('click', e => {
     e.preventDefault()
-    api
-      .subscribe(form2Json(document.querySelector('#frmSubscribe')))
+    if (validate(frmSubscribe)) {
+      api
+      .subscribe(form2Json(frmSubscribe))
       .then(resp => console.log(resp))
       .catch(error => console.error(error))
+    }
   })
 }

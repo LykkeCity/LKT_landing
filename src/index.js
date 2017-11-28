@@ -22,11 +22,13 @@ window.onload = () => {
   document.querySelector('body').classList.add('loaded')
 
   const form = document.querySelector('#frmWhitelist')
-  form.querySelectorAll('[name]').forEach(x => x.addEventListener('change', e => {
-    if (e.currentTarget.value) {
-      x.classList.remove('error')
-    }
-  }))
+  form.querySelectorAll('[name]').forEach(x =>
+    x.addEventListener('change', e => {
+      if (e.currentTarget.value) {
+        x.classList.remove('error')
+      }
+    })
+  )
 
   document.querySelector('#btnWhitelist').addEventListener('click', e => {
     e.preventDefault()
@@ -34,10 +36,10 @@ window.onload = () => {
     if (validate(form)) {
       const json = form2Json(form)
       api
-      .order(json)
-      .then(() => window.OHTracking.lead(json))
-      .then(() => location.replace('thankyou.html'))
-      .catch(error => console.error(error))
+        .order(json)
+        .then(() => window.OHTracking.lead(json))
+        .then(() => location.replace('thankyou.html'))
+        .catch(error => console.error(error))
     }
   })
 

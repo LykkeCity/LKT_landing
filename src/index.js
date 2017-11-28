@@ -17,8 +17,8 @@ window.onload = () => {
     const json = form2Json(document.querySelector('#frmWhitelist'))
     api
       .order(json)
-      .then(resp => window.OHTracking.lead(json))
-      .then(resp => location.replace('thankyou.html'))
+      .then(() => window.OHTracking.lead(json))
+      .then(() => location.replace('thankyou.html'))
       .catch(error => console.error(error))
   })
 

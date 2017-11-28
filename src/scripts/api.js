@@ -1,6 +1,6 @@
 import wretch from 'wretch'
 
-const baseUrl = 'http://lkk2y.lykke.com/api'
+const baseUrl = '/api'
 
 const api = wretch(baseUrl)
 

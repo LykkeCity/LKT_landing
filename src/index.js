@@ -35,6 +35,14 @@ window.onload = () => {
   const frmSubscribe = document.querySelector('#frmSubscribe')
   attachValidateHandler(frmSubscribe)
 
+  document.querySelector('#amount').addEventListener('change', e => {
+    const amount = Number(e.currentTarget.value) || 0
+    const asset = document.querySelector('#currency').value
+    api.convert({from: 'LKK2Y', amount: amount, to: asset.toUpperCase()}).then(res => {
+      document.querySelector('#totalAmount').value = `${res} ${asset}`
+    })
+  })
+
   document.querySelector('#btnWhitelist').addEventListener('click', e => {
     e.preventDefault()
 

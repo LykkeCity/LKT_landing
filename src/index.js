@@ -9,17 +9,32 @@ const form2Json = form =>
     return acc
   }, {})
 
+const validate = form => {
+  const inputs = document.querySelector('#frmWhitelist').querySelectorAll('[name]')
+  const invalidFields = Array.from(inputs).filter(x => !x.value)
+  invalidFields.forEach(x => {
+    x.classList += ' error'
+  })
+  return invalidFields.length > 0
+}
+
 window.onload = () => {
   document.querySelector('body').classList.add('loaded')
 
   document.querySelector('#btnWhitelist').addEventListener('click', e => {
     e.preventDefault()
-    const json = form2Json(document.querySelector('#frmWhitelist'))
-    api
+    const form = document.querySelector('#frmWhitelist')
+
+    const isValid = validate(form)
+
+    if (!isValid) {
+      const json = form2Json(form)
+      api
       .order(json)
       .then(() => window.OHTracking.lead(json))
       .then(() => location.replace('thankyou.html'))
       .catch(error => console.error(error))
+    }
   })
 
   document.querySelector('#btnSubscribe').addEventListener('click', e => {

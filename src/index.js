@@ -10,24 +10,28 @@ const form2Json = form =>
   }, {})
 
 const validate = form => {
-  const inputs = document.querySelector('#frmWhitelist').querySelectorAll('[name]')
+  const inputs = form.querySelectorAll('[name]')
   const invalidFields = Array.from(inputs).filter(x => !x.value)
   invalidFields.forEach(x => {
-    x.classList += ' error'
+    x.classList.add('error')
   })
-  return invalidFields.length > 0
+  return invalidFields.length === 0
 }
 
 window.onload = () => {
   document.querySelector('body').classList.add('loaded')
 
+  const form = document.querySelector('#frmWhitelist')
+  form.querySelectorAll('[name]').forEach(x => x.addEventListener('change', e => {
+    if (e.currentTarget.value) {
+      x.classList.remove('error')
+    }
+  }))
+
   document.querySelector('#btnWhitelist').addEventListener('click', e => {
     e.preventDefault()
-    const form = document.querySelector('#frmWhitelist')
 
-    const isValid = validate(form)
-
-    if (!isValid) {
+    if (validate(form)) {
       const json = form2Json(form)
       api
       .order(json)

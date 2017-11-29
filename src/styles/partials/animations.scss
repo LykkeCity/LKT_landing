@@ -54,7 +54,7 @@
 .parallax_text_groups {
   position: relative;
   height: 350px;
-  max-width: 450px;
+  max-width: 510px;
 
   .text_group {
     position: absolute;
@@ -63,6 +63,11 @@
     width: 100%;
     pointer-events: none;
     opacity: 0;
+    padding-right: 50px;
+
+    &:last-child {
+      padding-right: 0;
+    }
 
     &.skrollable-between {
       pointer-events: all;

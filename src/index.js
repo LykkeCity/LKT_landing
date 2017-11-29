@@ -24,12 +24,15 @@ const attachValidateHandler = form => {
       if (e.currentTarget.value) {
         x.classList.remove('error')
       }
-    }))
+    })
+  )
 }
 
 const convert = (amount, asset) => {
   api.convert({from: 'LKK2Y', amount: amount, to: asset}).then(res => {
-    document.querySelector('#totalAmount').textContent = `${res.amount} ${res.asset}`
+    document.querySelector('#totalAmount').textContent = `${res.amount} ${
+      res.asset
+    }`
   })
 }
 
@@ -60,8 +63,11 @@ window.onload = () => {
       const json = form2Json(frmWhitelist)
       api
         .order(json)
-        .then(() => window.OHTracking.lead(json))
-        .then(() => location.replace('thankyou.html'))
+        .then(() =>
+          location.replace(
+            `thankyou.html?${location.search}&a=${btoa(JSON.stringify(json))}`
+          )
+        )
         .catch(error => console.error(error))
     }
   })
@@ -70,9 +76,9 @@ window.onload = () => {
     e.preventDefault()
     if (validate(frmSubscribe)) {
       api
-      .subscribe(form2Json(frmSubscribe))
-      .then(resp => console.log(resp))
-      .catch(error => console.error(error))
+        .subscribe(form2Json(frmSubscribe))
+        .then(resp => console.log(resp))
+        .catch(error => console.error(error))
     }
   })
 }

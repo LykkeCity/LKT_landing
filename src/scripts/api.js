@@ -4,6 +4,12 @@ const baseUrl = '/api'
 
 const api = wretch(baseUrl).options({mode: 'cors'})
 
+export const info = () =>
+  api
+    .url('/info')
+    .get()
+    .json()
+
 export const subscribe = json =>
   api
     .url('/subscribe')

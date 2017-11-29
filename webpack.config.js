@@ -122,8 +122,8 @@ const buildConfig = {
     index: path.resolve('./src/index.js')
   },
   output: {
-    filename: '[name].js',
-    chunkFilename: '[name].js',
+    filename: '[name].[hash].js',
+    chunkFilename: '[name].[hash].js',
     path: path.join(__dirname, '/dist'),
     publicPath: ''
   },

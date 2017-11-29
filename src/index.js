@@ -38,8 +38,8 @@ window.onload = () => {
   document.querySelector('#amount').addEventListener('change', e => {
     const amount = Number(e.currentTarget.value) || 0
     const asset = document.querySelector('#currency').value
-    api.convert({from: 'LKK2Y', amount: amount, to: asset.toUpperCase()}).then(res => {
-      document.querySelector('#totalAmount').value = `${res} ${asset}`
+    api.convert({from: 'LKK2Y', amount: amount, to: asset}).then(res => {
+      document.querySelector('#totalAmount').textContent = `${res.amount} ${res.asset}`
     })
   })
 

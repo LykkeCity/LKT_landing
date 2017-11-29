@@ -1,8 +1,14 @@
 import wretch from 'wretch'
 
-const baseUrl = '/api'
+const baseUrl = 'https://lkk2y.lykke.com/api'
 
 const api = wretch(baseUrl).options({mode: 'cors'})
+
+export const info = () =>
+  api
+    .url('/info')
+    .get()
+    .json()
 
 export const subscribe = json =>
   api

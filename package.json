@@ -32,6 +32,7 @@
     "lodash.foreachright": "^4.4.0",
     "lodash.sortby": "^4.7.0",
     "moveto": "^1.6.1",
+    "numeral": "^2.0.6",
     "scrollmonitor": "^1.2.3",
     "wretch": "^1.1.0"
   },

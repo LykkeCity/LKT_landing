@@ -40,45 +40,49 @@ window.onload = () => {
   document.querySelector('body').classList.add('loaded')
 
   const frmWhitelist = document.querySelector('#frmWhitelist')
-  attachValidateHandler(frmWhitelist)
+  frmWhitelist && attachValidateHandler(frmWhitelist)
   const frmSubscribe = document.querySelector('#frmSubscribe')
-  attachValidateHandler(frmSubscribe)
+  frmSubscribe && attachValidateHandler(frmSubscribe)
 
-  document.querySelector('#amount').addEventListener('change', e => {
-    const amount = Number(e.currentTarget.value) || 0
-    const asset = document.querySelector('#currency').value
-    convert(amount, asset)
-  })
+  if (frmWhitelist) {
+    document.querySelector('#amount').addEventListener('change', e => {
+      const amount = Number(e.currentTarget.value) || 0
+      const asset = document.querySelector('#currency').value
+      convert(amount, asset)
+    })
 
-  document.querySelector('#currency').addEventListener('change', e => {
-    const amount = document.querySelector('#amount').value
-    const asset = e.currentTarget.value
-    convert(amount, asset)
-  })
+    document.querySelector('#currency').addEventListener('change', e => {
+      const amount = document.querySelector('#amount').value
+      const asset = e.currentTarget.value
+      convert(amount, asset)
+    })
 
-  document.querySelector('#btnWhitelist').addEventListener('click', e => {
-    e.preventDefault()
+    document.querySelector('#btnWhitelist').addEventListener('click', e => {
+      e.preventDefault()
 
-    if (validate(frmWhitelist)) {
-      const json = form2Json(frmWhitelist)
-      api
-        .order(json)
-        .then(() =>
-          location.replace(
-            `thankyou.html?${location.search}&a=${btoa(JSON.stringify(json))}`
+      if (validate(frmWhitelist)) {
+        const json = form2Json(frmWhitelist)
+        api
+          .order(json)
+          .then(() =>
+            location.replace(
+              `thankyou.html?${location.search}&a=${btoa(JSON.stringify(json))}`
+            )
           )
-        )
-        .catch(error => console.error(error))
-    }
-  })
+          .catch(error => console.error(error))
+      }
+    })
+  }
 
-  document.querySelector('#btnSubscribe').addEventListener('click', e => {
-    e.preventDefault()
-    if (validate(frmSubscribe)) {
-      api
-        .subscribe(form2Json(frmSubscribe))
-        .then(resp => console.log(resp))
-        .catch(error => console.error(error))
-    }
-  })
+  if (frmSubscribe) {
+    document.querySelector('#btnSubscribe').addEventListener('click', e => {
+      e.preventDefault()
+      if (validate(frmSubscribe)) {
+        api
+          .subscribe(form2Json(frmSubscribe))
+          .then(resp => console.log(resp))
+          .catch(error => console.error(error))
+      }
+    })
+  }
 }

@@ -48,8 +48,11 @@
   <script type="text/javascript" src="https://offershub.ru/js/public/OHTracking.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const json = JSON.parse(atob((new URL(location)).searchParams.get('a')));
-      window.OHTracking.lead(json)
+      const a = new URL(location).searchParams.get('a');
+      if (a) {
+        const json = JSON.parse(atob(a));
+        window.OHTracking.lead(json)
+      }
     })
   </script>
 </body>

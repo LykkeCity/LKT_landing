@@ -64,7 +64,9 @@ window.onload = () => {
       api
         .order(json)
         .then(() =>
-          location.replace(`thankyou.html?a=${btoa(JSON.stringify(json))}`)
+          location.replace(
+            `thankyou.html?${location.search}&a=${btoa(JSON.stringify(json))}`
+          )
         )
         .catch(error => console.error(error))
     }

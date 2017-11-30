@@ -21,13 +21,26 @@ const form2Json = form =>
     return acc
   }, {})
 
+const validateEmail = form => {
+  const email = form.querySelector('#email')
+  email &&
+    email.addEventListener('change', e => {
+      if (!email.validity.valid) {
+        email.classList.add('error')
+      }
+    })
+}
+
 const validate = form => {
   const inputs = form.querySelectorAll('[name]')
   const invalidFields = Array.from(inputs).filter(x => !x.value)
   invalidFields.forEach(x => {
     x.classList.add('error')
   })
-  return invalidFields.length === 0
+
+  return (
+    invalidFields.length === 0 && form.querySelector('#email').validity.valid
+  )
 }
 
 const attachValidateHandler = form => {
@@ -38,6 +51,7 @@ const attachValidateHandler = form => {
       }
     })
   )
+  validateEmail(form)
 }
 
 const convert = (amount, asset) => {
@@ -63,7 +77,7 @@ window.onload = () => {
   frmSubscribe && attachValidateHandler(frmSubscribe)
 
   if (frmWhitelist) {
-    document.querySelector('#amount').addEventListener('keyup', e => {
+    document.querySelector('#amount').addEventListener('input', e => {
       const amount = Number(e.currentTarget.value) || 0
       const asset = document.querySelector('#currency').value
       convert(amount, asset)
@@ -89,7 +103,6 @@ window.onload = () => {
 
     document.querySelector('#btnWhitelist').addEventListener('click', e => {
       e.preventDefault()
-
       if (validate(frmWhitelist)) {
         const json = form2Json(frmWhitelist)
         api

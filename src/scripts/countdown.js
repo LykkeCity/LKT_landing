@@ -16,8 +16,7 @@ function getTimeRemaining (endtime) {
   }
 }
 
-function initializeClock (id, endtime) {
-  var clock = document.getElementById(id)
+function initializeClock (clock, endtime) {
   var daysSpan = clock.querySelector('.days')
   var hoursSpan = clock.querySelector('.hours')
   var minutesSpan = clock.querySelector('.minutes')
@@ -41,11 +40,13 @@ function initializeClock (id, endtime) {
 }
 
 api.info().then(info => {
-  initializeClock('countdown', new Date(info.startDate))
-  document.querySelector('#fundsReceived').textContent = num(info.fundsRecieved)
-    .format('($0[.]00a)')
-    .toUpperCase()
-  document.querySelector('#fundsGoal').textContent = num(info.fundsGoal)
-    .format('($0[.]00a)')
-    .toUpperCase()
+  const clock = document.querySelector('#countdown')
+  clock && initializeClock(clock, new Date(info.startDate))
+
+  const fundsReceived = document.querySelector('#fundsReceived')
+  if (fundsReceived) {
+    fundsReceived.textContent = num(info.fundsRecieved)
+      .format('($0[.]00a)')
+      .toUpperCase()
+  }
 })

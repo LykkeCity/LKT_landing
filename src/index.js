@@ -39,6 +39,12 @@ const convert = (amount, asset) => {
 window.onload = () => {
   document.querySelector('body').classList.add('loaded')
 
+  document.querySelectorAll('.form-control').forEach(x =>
+    x.addEventListener('change', e => {
+      e.currentTarget.value && x.classList.add('form-control--focus')
+    })
+  )
+
   const frmWhitelist = document.querySelector('#frmWhitelist')
   frmWhitelist && attachValidateHandler(frmWhitelist)
   const frmSubscribe = document.querySelector('#frmSubscribe')

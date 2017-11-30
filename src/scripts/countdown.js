@@ -41,7 +41,7 @@ function initializeClock (clock, endtime) {
 
 api.info().then(info => {
   const clock = document.querySelector('#countdown')
-  clock && initializeClock(clock, new Date(info.startDate))
+  clock && initializeClock(clock, new Date(info.startDate * 1000))
 
   const fundsReceived = document.querySelector('#fundsReceived')
   if (fundsReceived) {

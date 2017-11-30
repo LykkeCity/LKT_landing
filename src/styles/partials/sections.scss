@@ -14,10 +14,6 @@
   @media all and (max-width: 991px) {
     padding: 90px 0 !important;
 
-    + .section {
-      padding-bottom: 0 !important;
-    }
-
     &.section_subscribe {
       padding: 90px 0 !important;
     }
@@ -46,8 +42,10 @@
   font-weight: getFontWeight(semibold);
 
   @include break-max(medium) {
-    font-size: 30px;
-    line-height: normal;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 1.1;
+    text-align: center;
   }
 
   @media all and (max-height: 767px) {
@@ -64,6 +62,7 @@
 
   @include break-max(medium) {
     font-size: 20px;
+    line-height: 1.4;
   }
 }
 
@@ -74,6 +73,10 @@
   letter-spacing: 2px;
   margin-bottom: 8px;
   text-transform: uppercase;
+
+  @include break-max(medium) {
+    text-align: center;
+  }
 }
 
 
@@ -116,7 +119,6 @@
   .section_title {
     margin-top: 10px;
     margin-bottom: 3px;
-    font-weight: getFontWeight(bold);
   }
 
   .section_content {
@@ -167,6 +169,8 @@
   }
 
   @media all and (max-width: 991px){
+    text-align: center;
+
     .section_content,
     .section_header {
       position: static;
@@ -174,8 +178,7 @@
     }
 
     .section_header {
-      margin-top: 40px;
-      margin-bottom: 40px;
+      margin-bottom: 22px;
     }
 
     .section_title {
@@ -187,8 +190,8 @@
     }
 
     .text-right {
-      text-align: left !important;
-      margin: 40px 0;
+      text-align: center !important;
+      margin: 20px 0;
     }
   }
 
@@ -258,10 +261,25 @@
     line-height: 30px;
   }
 
+  &__title {
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 1.35;
+    margin-bottom: 10px;
+    font-family: $font-stack;
+  }
+
   @include break-max(medium) {
     &__text {
-      font-size: 14px;
+      font-size: 12px;
       line-height: 20px;
+      margin-bottom: 6px;
+    }
+
+    &__title {
+      font-size: 15px;
+      line-height: 1.33;
+      margin-bottom: 6px;
     }
   }
 }
@@ -308,6 +326,8 @@
   }
 
   @include break-max(medium) {
+    margin-bottom: 10px;
+
     &__text {
       font-size: 9px;
       line-height: 20px;
@@ -355,6 +375,11 @@
     z-index: 2;
   }
 
+  .list_links {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
   @include break-max(tablet) {
     .section_img {
       display: none;
@@ -368,6 +393,10 @@
 
 #about {
   background-color: #12113b;
+}
+
+.section_form {
+  height: auto;
 }
 
 

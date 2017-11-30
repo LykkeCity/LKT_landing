@@ -37,6 +37,7 @@
     font-size: 12px;
     line-height: 20px;
     letter-spacing: 2px;
+    white-space: nowrap;
   }
 
   .footer_logo {
@@ -44,7 +45,7 @@
     display: inline-block;
   }
 
-  @include break-max(tablet) {
+  @include break-max(xlarge) {
     &__copy {
       margin-bottom: 20px;
     }

@@ -19,12 +19,12 @@
     float: left;
 
     a {
-      padding: 8px 14px 8px 40px;
+      padding: 8px 14px 8px 34px;
       color: getColor(white);
       display: block;
       position: relative;
       background: url('../../public/images/download.svg') no-repeat center left;
-      background-size: 30px;
+      background-size: 24px;
     }
   }
 
@@ -41,7 +41,26 @@
     text-align: left;
   }
 
-  @media all and (min-width: 420px) {
+  @media all and (max-width: 991px){
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+
+  @media all and (max-width: 519px) {
+    width: 172px;
+    max-width: 100%;
+
+    &__action {
+      display: none;
+    }
+
+    &__text {
+      font-size: 11px;
+    }
+  }
+
+  @media all and (min-width: 520px) {
     &__item {
       width: 50%;
     }
@@ -95,7 +114,7 @@ ul.list_styled {
   @include break-max(tablet) {
     padding-left: 50px;
     padding-right: 30px;
-    margin-bottom: 50px;
+    margin-bottom: 0;
   }
 
   @include break-max(medium) {

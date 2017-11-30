@@ -100,7 +100,7 @@
   height: 100vH;
   color: getColor(white);
   position: relative;
-  min-height: 640px;
+  min-height: 610px;
   background-color: getColor(bg);
   z-index: 101;
 
@@ -125,7 +125,7 @@
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 130px;
+    bottom: 100px;
     opacity: 0;
   }
 
@@ -168,7 +168,8 @@
     }
   }
 
-  @media all and (max-width: 991px){
+
+  @media all and (max-width: 991px), all and (max-height: 767px){
     text-align: center;
 
     .section_content,
@@ -192,6 +193,17 @@
     .text-right {
       text-align: center !important;
       margin: 20px 0;
+    }
+  }
+
+
+  @media all and (max-height: 767px){
+    .section_header {
+      margin-bottom: 40px;
+    }
+
+    h4 {
+      display: none;
     }
   }
 

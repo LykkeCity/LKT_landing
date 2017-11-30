@@ -166,6 +166,20 @@
       right: 0;
     }
   }
+
+  @include break-max(tablet) {
+    font-size: 18px;
+    padding: 26px 0 10px;
+    height: 80px;
+
+    &--focus,
+    &:focus {
+      ~ .control-label {
+        font-size: 10px;
+        top: 20px;
+      }
+    }
+  }
 }
 
 label.error {
@@ -181,17 +195,24 @@ label.error {
 .control-label {
   font-weight: normal;
   line-height: 1;
-  color: #ffffff;
   color: rgba(#fff, .3);
   text-transform: uppercase;
   font-size: 16px;
   letter-spacing: 2px;
   transition: all .3s ease;
+
+  @include break-max(tablet) {
+    font-size: 14px;
+  }
 }
 
 .form-group {
   margin-bottom: 30px;
   position: relative;
+
+  @include break-max(tablet) {
+    margin-bottom: 15px;
+  }
 }
 
 .input-group {

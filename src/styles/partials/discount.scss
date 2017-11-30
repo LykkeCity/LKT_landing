@@ -25,6 +25,11 @@
   &.affix-top {
     transform: rotateX(90deg);
   }
+
+  @include break-max(tablet) {
+    margin-bottom: 20px;
+    transform: rotateX(0deg);
+  }
 }
 
 .discount_info {
@@ -69,10 +74,6 @@
     padding-left: 0;
     padding-right: 0;
     margin-bottom: 0;
-
-    &__img {
-      margin-bottom: 10px;
-    }
 
     &__title {
       font-size: 14px;

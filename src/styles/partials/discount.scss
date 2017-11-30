@@ -27,7 +27,7 @@
 
   @include break-max(tablet) {
     margin-bottom: 20px;
-    transform: rotateX(0deg);
+    transform: rotateX(0deg) !important;
   }
 }
 

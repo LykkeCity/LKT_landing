@@ -47,7 +47,7 @@
 
   }
 
-  @media all and (max-width: 519px) {
+  @include break-max(tablet) {
     width: 172px;
     max-width: 100%;
 
@@ -60,14 +60,9 @@
     }
   }
 
-  @media all and (min-width: 520px) {
+  @media all and (min-width: 992px) {
     &__item {
       width: 50%;
-    }
-  }
-
-  @media all and (min-width: 768px) {
-    &__item {
 
       a {
         padding: 13px 14px 13px 60px;

@@ -3,6 +3,8 @@ import './styles/index'
 import './scripts/countdown'
 import * as api from './scripts/api'
 
+import num from 'numeral'
+
 const restrictedCoutries = [
   'China',
   'South Korea',
@@ -40,9 +42,9 @@ const attachValidateHandler = form => {
 
 const convert = (amount, asset) => {
   api.convert({from: 'LKK2Y', amount: amount, to: asset}).then(res => {
-    document.querySelector('#totalAmount').textContent = `${res.amount} ${
-      res.asset
-    }`
+    document.querySelector('#totalAmount').textContent = `${num(
+      res.amount
+    ).format('0,0[.]00')} ${res.asset}`
   })
 }
 
@@ -61,7 +63,7 @@ window.onload = () => {
   frmSubscribe && attachValidateHandler(frmSubscribe)
 
   if (frmWhitelist) {
-    document.querySelector('#amount').addEventListener('change', e => {
+    document.querySelector('#amount').addEventListener('keyup', e => {
       const amount = Number(e.currentTarget.value) || 0
       const asset = document.querySelector('#currency').value
       convert(amount, asset)

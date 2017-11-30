@@ -5,6 +5,8 @@ import * as api from './scripts/api'
 
 import num from 'numeral'
 
+import countries from './scripts/countries'
+
 const restrictedCoutries = [
   'China',
   'South Korea',
@@ -89,17 +91,15 @@ window.onload = () => {
       convert(amount, asset)
     })
 
-    api.coutries().then(res => {
-      const countries = res
-        .map(x => x.name)
-        .filter(x => restrictedCoutries.indexOf(x) < 0)
-        .map(x => `<option value="${x}">${x}</option>`)
+    const filteredCountries = countries
+      .map(x => x.name)
+      .filter(x => restrictedCoutries.indexOf(x) < 0)
+      .map(x => `<option value="${x}">${x}</option>`)
 
-      document.querySelector('#country').innerHTML = [
-        `<option value="" selected hidden></option>`,
-        ...countries
-      ]
-    })
+    document.querySelector('#country').innerHTML = [
+      `<option value="" selected hidden></option>`,
+      ...filteredCountries
+    ]
 
     document.querySelector('#btnWhitelist').addEventListener('click', e => {
       e.preventDefault()

@@ -44,7 +44,7 @@ const convert = (amount, asset) => {
   api.convert({from: 'LKK2Y', amount: amount, to: asset}).then(res => {
     document.querySelector('#totalAmount').textContent = `${num(
       res.amount
-    ).format('0,0[.]00')} ${res.asset}`
+    ).format('0[.]00')} ${res.asset}`
   })
 }
 

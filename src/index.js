@@ -3,6 +3,16 @@ import './styles/index'
 import './scripts/countdown'
 import * as api from './scripts/api'
 
+const restrictedCoutries = [
+  'China',
+  'South Korea',
+  'United States',
+  'Canada',
+  'Singapore',
+  'Australia',
+  'New Zealand'
+]
+
 const form2Json = form =>
   Array.from(form.querySelectorAll('[name]')).reduce((acc, {name, value}) => {
     acc[name] = value
@@ -61,6 +71,18 @@ window.onload = () => {
       const amount = document.querySelector('#amount').value
       const asset = e.currentTarget.value
       convert(amount, asset)
+    })
+
+    api.coutries().then(res => {
+      const countries = res
+        .map(x => x.name)
+        .filter(x => restrictedCoutries.indexOf(x) < 0)
+        .map(x => `<option value="${x}">${x}</option>`)
+
+      document.querySelector('#country').innerHTML = [
+        `<option value="" selected hidden></option>`,
+        ...countries
+      ]
     })
 
     document.querySelector('#btnWhitelist').addEventListener('click', e => {

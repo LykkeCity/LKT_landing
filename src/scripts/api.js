@@ -30,3 +30,8 @@ export const convert = json =>
     .json(json)
     .post()
     .json()
+
+export const coutries = () =>
+  wretch('https://restcountries.eu/rest/v2/all')
+    .get()
+    .json()

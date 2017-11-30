@@ -16,16 +16,25 @@ html {
   height: 100%;
 }
 
+html.skrollr.skrollr-mobile {
+  overflow: auto !important;
+}
+
 body {
   height: 100%;
   font: 400 getFontSize(regular) $font-default;
   color: getColor(white);
   background-color: getColor(bg);
+  overflow: auto !important;
 
   -webkit-text-size-adjust: none;
   font-size-adjust: none;
 
   @include fontantialias(true);
+
+  @media all and (max-width: 991px), all and (max-height: 767px) {
+    height: auto;
+  }
 }
 
 .body_grid_bg {
@@ -79,4 +88,15 @@ input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+
+.apps {
+  .apps_apple, .apps_google {
+    max-width: 46%;
+
+    img {
+      max-width: 100%;
+    }
+  }
 }

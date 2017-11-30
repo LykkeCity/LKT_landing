@@ -104,16 +104,26 @@
   border-radius: 0;
   transition: all .3s ease;
 
+  pointer-events: none;
+
   &:focus {
     outline: none;
   }
 
-  &:hover {
+/*  &:hover {
     color: inherit;
-  }
+  }*/
 
   &--green {
     color: getColor(green);
+  }
+
+
+}
+
+.badges-hidden {
+  @include break-max(tablet) {
+    opacity: 1 !important;
   }
 }
 

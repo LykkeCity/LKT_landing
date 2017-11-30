@@ -110,7 +110,9 @@ window.onload = () => {
       if (validate(frmSubscribe)) {
         api
           .subscribe(form2Json(frmSubscribe))
-          .then(resp => console.log(resp))
+          .then(resp => {
+            document.querySelector('#subscribeResult').style.display = 'block'
+          })
           .catch(error => console.error(error))
       }
     })

@@ -366,7 +366,8 @@
 .section_about {
   padding: 200px 0;
   height: auto;
-  
+  background-color: getColor(bg);
+
   .section_img {
     position: relative;
     height: 600px;

@@ -2,6 +2,9 @@
   list-style: none;
   margin-bottom: 0;
   font-family: $font-default;
+  width: 500px;
+  max-width: 100%;
+  overflow: hidden;
 
   &__item {
     text-transform: uppercase;
@@ -10,48 +13,55 @@
     letter-spacing: 2px;
     display: inline-block;
     vertical-align: top;
-    text-align: center;
+    text-align: left;
     position: relative;
+    width: 100%;
+    float: left;
 
     a {
-      padding: 8px 14px;
+      padding: 8px 14px 8px 40px;
       color: getColor(white);
       display: block;
+      position: relative;
+      background: url('../../public/images/download.svg') no-repeat center left;
+      background-size: 30px;
     }
   }
 
   &__text {
     color: getColor(white);
     display: block;
-    position: relative;
     transition: all .3s ease;
-    top: 0;
   }
 
   &__action {
     color: getColor(pink);
     letter-spacing: 1.71px;
     display: block;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 13px;
-    text-align: center;
-    opacity: 0;
-    transition: opacity .3s ease;
+    text-align: left;
+  }
+
+  @media all and (min-width: 420px) {
+    &__item {
+      width: 50%;
+    }
   }
 
   @media all and (min-width: 768px) {
-    a {
-      padding: 13px 14px;
+    &__item {
 
-      &:hover {
-        .list_links__action {
-          opacity: 1;
-        }
+      a {
+        padding: 13px 14px 13px 60px;
+        background-size: 40px;
 
-        .list_links__text {
-          top: -20px;
+        &:hover {
+          .list_links__action {
+            opacity: 1;
+          }
+
+          .list_links__text {
+            top: -20px;
+          }
         }
       }
     }

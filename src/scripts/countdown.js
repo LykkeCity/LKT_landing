@@ -1,3 +1,6 @@
+import * as api from './api'
+import num from 'numeral'
+
 function getTimeRemaining (endtime) {
   var t = Date.parse(endtime) - Date.parse(new Date())
   var seconds = Math.floor((t / 1000) % 60)
@@ -5,11 +8,11 @@ function getTimeRemaining (endtime) {
   var hours = Math.floor((t / (1000 * 60 * 60)) % 24)
   var days = Math.floor(t / (1000 * 60 * 60 * 24))
   return {
-    'total': t,
-    'days': days,
-    'hours': hours,
-    'minutes': minutes,
-    'seconds': seconds
+    total: t,
+    days: days,
+    hours: hours,
+    minutes: minutes,
+    seconds: seconds
   }
 }
 
@@ -23,9 +26,9 @@ function initializeClock (id, endtime) {
   function updateClock () {
     var t = getTimeRemaining(endtime)
 
-    daysSpan.innerHTML = t.days + ':'
-    hoursSpan.innerHTML = ('0' + t.hours).slice(-2) + ':'
-    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2) + ':'
+    daysSpan.innerHTML = t.days
+    hoursSpan.innerHTML = ('0' + t.hours).slice(-2)
+    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2)
     secondsSpan.innerHTML = ('0' + t.seconds).slice(-2)
 
     if (t.total <= 0) {
@@ -36,5 +39,13 @@ function initializeClock (id, endtime) {
   updateClock()
   var timeinterval = setInterval(updateClock, 1000)
 }
-var deadline = new Date(Date.parse(new Date()) + 40 * 24 * 60 * 60 * 1000)
-initializeClock('countdown', deadline)
+
+api.info().then(info => {
+  initializeClock('countdown', new Date(info.startDate))
+  document.querySelector('#fundsReceived').textContent = num(info.fundsRecieved)
+    .format('($0[.]00a)')
+    .toUpperCase()
+  document.querySelector('#fundsGoal').textContent = num(info.fundsGoal)
+    .format('($0[.]00a)')
+    .toUpperCase()
+})

@@ -170,15 +170,20 @@
 
   @media all and (min-width: 1280px) and (max-height: 767px)  {
     padding: 160px 0 100px !important;
+    height: 100vH !important;
 
     .section_header {
-      margin-bottom: 100px !important;
+      margin-top: -140px;
+      margin-bottom: 60px !important;
+    }
+
+    .section_content {
+      bottom: 40px;
     }
   }
 
-  @media all and (max-width: 991px), all and (max-height: 767px){
-    text-align: center;
 
+  @media all and (max-width: 1279px) and (max-height: 767px){
     .section_content,
     .section_header {
       position: static;
@@ -196,15 +201,12 @@
     .list_links {
       margin-top: 30px;
     }
-
-    .text-right {
-      text-align: center !important;
-      margin: 20px 0;
-    }
   }
 
 
   @media all and (max-height: 767px){
+    text-align: center;
+
     .section_header {
       margin-bottom: 40px;
     }
@@ -214,7 +216,16 @@
     }
   }
 
+  @media all and (max-width: 991px) {
+    .text-right {
+      text-align: center !important;
+      margin: 20px 0;
+    }
+  }
+
   @media all and (max-width: 767px) {
+    text-align: center;
+
     .section_title {
       margin-bottom: 20px;
     }

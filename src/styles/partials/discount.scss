@@ -3,8 +3,7 @@
   margin-bottom: 60px;
 
   @include break-max(medium) {
-    padding: 0;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 }
 
@@ -38,7 +37,7 @@
 
 .discount_item {
   float: left;
-  width: percentage(1/11);
+  width: percentage(1/5);
   text-align: center;
   padding: 0 25px;
 

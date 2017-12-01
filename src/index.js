@@ -11,6 +11,7 @@ const restrictedCoutries = [
   'China',
   'South Korea',
   'United States',
+  'United States Minor Outlying Islands',
   'Canada',
   'Australia',
   'New Zealand'
@@ -98,7 +99,7 @@ window.onload = () => {
     })
 
     document.querySelector('#currency').addEventListener('change', e => {
-      const amount = document.querySelector('#amount').value
+      const amount = Number(document.querySelector('#amount').value) || 0
       const asset = e.currentTarget.value
       convert(amount, asset)
     })

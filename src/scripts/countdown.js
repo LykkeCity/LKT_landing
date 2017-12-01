@@ -45,8 +45,6 @@ api.info().then(info => {
 
   const fundsReceived = document.querySelector('#fundsReceived')
   if (fundsReceived) {
-    fundsReceived.textContent = num(info.fundsTotal)
-      .format('(0[.]00a)')
-      .toUpperCase()
+    fundsReceived.textContent = num(info.fundsTotal).format('(0[.]00)')
   }
 })

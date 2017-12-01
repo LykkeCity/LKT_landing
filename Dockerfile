@@ -2,6 +2,7 @@ FROM ilagnev/alpine-nginx-lua
 ARG dist=./dist
 WORKDIR /usr/share/nginx/html
 COPY $dist .
+COPY robots.txt .
 
 ARG VERSION=1.0.0
 ENV APP_VERSION=$VERSION

@@ -33,6 +33,18 @@ const validateEmail = form => {
     })
 }
 
+const validateAmount = form => {
+  const amount = form.querySelector('#amount')
+  amount &&
+    amount.addEventListener('keypress', e => {
+      if (e.which < 48 || e.which > 57) {
+        e.preventDefault()
+        e.stopPropagation()
+        return false
+      }
+    })
+}
+
 const validate = form => {
   const inputs = form.querySelectorAll('[name]')
   const invalidFields = Array.from(inputs).filter(x => !x.value)
@@ -54,6 +66,7 @@ const attachValidateHandler = form => {
     })
   )
   validateEmail(form)
+  validateAmount(form)
 }
 
 const convert = (amount, asset) => {

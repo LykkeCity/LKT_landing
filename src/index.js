@@ -12,7 +12,6 @@ const restrictedCoutries = [
   'South Korea',
   'United States',
   'Canada',
-  'Singapore',
   'Australia',
   'New Zealand'
 ]

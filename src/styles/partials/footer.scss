@@ -8,8 +8,13 @@
     font-size: 14px;
     color: rgba(getColor(white), .6);
     letter-spacing: 0;
-    line-height: 20px;
     margin-bottom: 55px;
+    line-height: 20px;
+
+    p {
+      font-size: 14px;
+      line-height: 20px;
+    }
   }
 
   &__links {

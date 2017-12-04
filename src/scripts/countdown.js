@@ -1,5 +1,50 @@
 import * as api from './api'
 import num from 'numeral'
+import 'numeral/locales'
+
+const knownLocales = [
+  'bg',
+  'chs',
+  'cs',
+  'da-dk',
+  'de-ch',
+  'de',
+  'en-au',
+  'en-gb',
+  'en-za',
+  'es-es',
+  'es',
+  'et',
+  'fi',
+  'fr-ca',
+  'fr-ch',
+  'fr',
+  'hu',
+  'it',
+  'ja',
+  'lv',
+  'nl-be',
+  'nl-nl',
+  'no',
+  'pl',
+  'pt-br',
+  'pt-pt',
+  'ru-ua',
+  'ru',
+  'sk',
+  'sl',
+  'th',
+  'tr',
+  'uk-ua',
+  'vi'
+]
+
+const lang =
+  (window.navigator.languages && window.navigator.languages[0]) ||
+  window.navigator.userLanguage ||
+  window.navigator.language
+
+num.locale(knownLocales.find(x => x.toLowerCase() === lang.toLowerCase()))
 
 function getTimeRemaining (endtime) {
   var t = Date.parse(endtime) - Date.parse(new Date())
@@ -45,6 +90,6 @@ api.info().then(info => {
 
   const fundsReceived = document.querySelector('#fundsReceived')
   if (fundsReceived) {
-    fundsReceived.textContent = num(info.fundsTotal).format('(0[.]00)')
+    fundsReceived.textContent = num(info.fundsTotal).format('(0,0[.]00)')
   }
 })

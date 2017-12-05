@@ -379,7 +379,7 @@
     display: inline-block;
     vertical-align: top;
     width: 50px;
-    text-align: left;
+    text-align: center;
 
     &:last-child {
       width: 52px;
@@ -399,7 +399,6 @@
     &__text {
       font-size: 9px;
       line-height: 20px;
-      text-align: left;
       margin: 0;
     }
 

@@ -72,6 +72,12 @@ const commonConfig = {
       minify: false
     }),
     new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, './src/index-alt.html'),
+      hash: false,
+      filename: 'index-alt.html',
+      minify: false
+    }),
+    new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './src/thankyou.html'),
       hash: false,
       filename: 'thankyou.html',

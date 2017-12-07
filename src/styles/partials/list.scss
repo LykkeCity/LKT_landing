@@ -4,7 +4,8 @@
   font-family: $font-default;
   width: 500px;
   max-width: 100%;
-  overflow: hidden;
+
+  @util clearfix;
 
   &__item {
     text-transform: uppercase;
@@ -17,6 +18,7 @@
     position: relative;
     width: 100%;
     float: left;
+    white-space: nowrap;
 
     a {
       padding: 8px 14px 8px 34px;
@@ -44,12 +46,15 @@
   @media all and (max-width: 991px){
     margin-left: auto;
     margin-right: auto;
-
   }
 
   @include break-max(tablet) {
     width: 172px;
     max-width: 100%;
+
+    &__item {
+      white-space: normal;
+    }
 
     &__action {
       display: none;

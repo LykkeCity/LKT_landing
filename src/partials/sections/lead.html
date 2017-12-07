@@ -7,7 +7,6 @@
         <div class="section_header">
           <div class="container">
             <h1 class="section_title">Lykke 2-year forward</h1>
-            <div class="section_subtitle">The first step to Lykke 2.0. Special limited offer. December 12, 2017</div>
             <a href="#form" type="button" class="btn btn--bordered">Get on the whitelist</a>
           </div>
         </div>
@@ -83,3 +82,22 @@
     </div>
   </div>
 </section>
+<script>
+  const insertAfter = (referenceNode, newNode) => {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+  }
+  const createElementFromString = s => {
+    const d = document.createElement('div');
+    d.innerHTML = s;
+    return d.firstChild;
+  }
+
+  const refNode = document.querySelector('#lead .section_title');
+
+  if (location.hostname.includes('promolkk2y')) {
+    document.querySelector('#lead').classList.add('section_lead--alt');
+    insertAfter(refNode, createElementFromString('<div><div class="section_subtitle">Lykke is a global regulated marketplace on the blockchain. Invest in a 2-year forward contract on LKK and get a discount.</div><div class="label">Special limited offer. December 12, 2017</div></div>'))
+  } else {
+    insertAfter(refNode, createElementFromString('<div><div class="section_subtitle">The first step to Lykke 2.0. Special limited offer. December 12, 2017</div></div>'))
+  }
+</script>

@@ -1,3 +1,4 @@
+import 'whatwg-fetch'
 import './styles/index'
 
 import './scripts/countdown'
